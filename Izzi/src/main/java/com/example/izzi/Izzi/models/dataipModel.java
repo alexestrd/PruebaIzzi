@@ -44,159 +44,145 @@ public class dataipModel {
     @JsonProperty("status") @Getter @Setter
     private String status;
 
-class Location {
-    @JsonProperty("latitude") @Getter @Setter
-    private double latitude;
+    public static class Location {
+        @JsonProperty("latitude") @Getter @Setter
+        private double latitude;
 
-    @JsonProperty("longitude") @Getter @Setter
-    private double longitude;
+        @JsonProperty("longitude") @Getter @Setter
+        private double longitude;
+    }
 
+    public static class Area {
+        @JsonProperty("code") @Getter @Setter
+        private String code;
 
+        @JsonProperty("geonameid") @Getter @Setter
+        private int geonameid;
+
+        @JsonProperty("name") @Getter @Setter
+        private String name;
+    }
+
+    public static class ASN {
+        @JsonProperty("number") @Getter @Setter
+        private int number;
+
+        @JsonProperty("organisation") @Getter @Setter
+        private String organisation;
+    }
+
+    public static class City {
+        @JsonProperty("geonameid") @Getter @Setter
+        private int geonameid;
+
+        @JsonProperty("name") @Getter @Setter
+        private String name;
+
+        @JsonProperty("population") @Getter @Setter
+        private int population;
+    }
+
+    public static class Continent {
+        @JsonProperty("geonameid") @Getter @Setter
+        private int geonameid;
+
+        @JsonProperty("name") @Getter @Setter
+        private String name;
+
+        @JsonProperty("code") @Getter @Setter
+        private String code;
+    }
+
+    public static class Country {
+        @JsonProperty("geonameid") @Getter @Setter
+        private int geonameid;
+
+        @JsonProperty("name") @Getter @Setter
+        private String name;
+
+        @JsonProperty("code")@Getter @Setter
+        private String code;
+
+        @JsonProperty("capital") @Getter @Setter
+        private String capital;
+
+        @JsonProperty("area_size") @Getter @Setter
+        private String areaSize;
+
+        @JsonProperty("population") @Getter @Setter
+        private int population;
+
+        @JsonProperty("phone_code") @Getter @Setter
+        private String phoneCode;
+
+        @JsonProperty("is_in_eu") @Getter @Setter
+        private boolean isInEu;
+
+        @JsonProperty("languages") @Getter @Setter
+        private Languages languages;
+
+        @JsonProperty("flag") @Getter @Setter
+        private Flag flag;
+
+        @JsonProperty("tld") @Getter @Setter
+        private String tld;
+    }
+
+    public static class Languages {
+        @JsonProperty("es") @Getter @Setter
+        private String es;
+    }
+
+    public static class Flag {
+        @JsonProperty("file") @Getter @Setter
+        private String file;
+
+        @JsonProperty("emoji") @Getter @Setter
+        private String emoji;
+
+        @JsonProperty("unicode") @Getter @Setter
+        private String unicode;
+    }
+
+    public static class Currency {
+        @JsonProperty("code") @Getter @Setter
+        private String code;
+
+        @JsonProperty("name") @Getter @Setter
+        private String name;
+    }
+
+    public static class Security {
+        @JsonProperty("is_tor") @Getter @Setter
+        private boolean isTor;
+
+        @JsonProperty("is_proxy") @Getter @Setter
+        private boolean isProxy;
+
+        @JsonProperty("is_crawler") @Getter @Setter
+        private boolean isCrawler;
+
+        @JsonProperty("is_threat") @Getter @Setter
+        private boolean isThreat;
+
+        @JsonProperty("is_thread")@Getter @Setter
+        private boolean isThread;
+    }
+
+    public static class Time {
+        @JsonProperty("timezone") @Getter @Setter
+        private String timezone;
+
+        @JsonProperty("gtm_offset") @Getter @Setter
+        private int gtmOffset;
+
+        @JsonProperty("gmt_offset") @Getter @Setter
+        private int gmtOffset;
+
+        @JsonProperty("is_daylight_saving") @Getter @Setter
+        private boolean isDaylightSaving;
+
+        @JsonProperty("code") @Getter @Setter
+        private String code;
+    }
 }
-
-class Area {
-    @JsonProperty("code") @Getter @Setter
-    private String code;
-
-    @JsonProperty("geonameid") @Getter @Setter
-    private int geonameid;
-
-    @JsonProperty("name") @Getter @Setter
-    private String name;
-
-
-}
-
-class ASN {
-    @JsonProperty("number") @Getter @Setter
-    private int number;
-
-    @JsonProperty("organisation") @Getter @Setter
-    private String organisation;
-
-
-}
-
-class City {
-    @JsonProperty("geonameid") @Getter @Setter
-    private int geonameid;
-
-    @JsonProperty("name") @Getter @Setter
-    private String name;
-
-    @JsonProperty("population") @Getter @Setter
-    private int population;
-}
-
-class Continent {
-    @JsonProperty("geonameid") @Getter @Setter
-    private int geonameid;
-
-    @JsonProperty("name") @Getter @Setter
-    private String name;
-
-    @JsonProperty("code") @Getter @Setter
-    private String code;
-
-}
-
-class Country {
-    @JsonProperty("geonameid") @Getter @Setter
-    private int geonameid;
-
-    @JsonProperty("name") @Getter @Setter
-    private String name;
-
-    @JsonProperty("code")@Getter @Setter
-    private String code;
-
-    @JsonProperty("capital") @Getter @Setter
-    private String capital;
-
-    @JsonProperty("area_size") @Getter @Setter
-    private String areaSize;
-
-    @JsonProperty("population") @Getter @Setter
-    private int population;
-
-    @JsonProperty("phone_code") @Getter @Setter
-    private String phoneCode;
-
-    @JsonProperty("is_in_eu") @Getter @Setter
-    private boolean isInEu;
-
-    @JsonProperty("languages") @Getter @Setter
-    private Languages languages;
-
-    @JsonProperty("flag") @Getter @Setter
-    private Flag flag;
-
-    @JsonProperty("tld") @Getter @Setter
-    private String tld;
-}
-
-class Languages {
-    @JsonProperty("es") @Getter @Setter
-    private String es;
-
-
-}
-
-class Flag {
-    @JsonProperty("file") @Getter @Setter
-    private String file;
-
-    @JsonProperty("emoji") @Getter @Setter
-    private String emoji;
-
-    @JsonProperty("unicode") @Getter @Setter
-    private String unicode;
-
-}
-
-class Currency {
-    @JsonProperty("code") @Getter @Setter
-    private String code;
-
-    @JsonProperty("name") @Getter @Setter
-    private String name;
-
-}
-
-class Security {
-    @JsonProperty("is_tor") @Getter @Setter
-    private boolean isTor;
-
-    @JsonProperty("is_proxy") @Getter @Setter
-    private boolean isProxy;
-
-    @JsonProperty("is_crawler") @Getter @Setter
-    private boolean isCrawler;
-
-    @JsonProperty("is_threat") @Getter @Setter
-    private boolean isThreat;
-
-    @JsonProperty("is_thread")@Getter @Setter
-    private boolean isThread;
-
-    // Getters y setters
-}
-
-class Time {
-    @JsonProperty("timezone")
-    private String timezone;
-
-    @JsonProperty("gtm_offset")
-    private int gtmOffset;
-
-    @JsonProperty("gmt_offset")
-    private int gmtOffset;
-
-    @JsonProperty("is_daylight_saving")
-    private boolean isDaylightSaving;
-
-    @JsonProperty("code")
-    private String code;
-
-
-}}

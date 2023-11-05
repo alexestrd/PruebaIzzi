@@ -32,8 +32,8 @@ public class consultasController {
             return new ResponseEntity<>(bindingResult.getFieldError().getDefaultMessage(), HttpStatus.BAD_REQUEST);
         }
 
-        ConsultasDao.postConsulta(consulta);
-        return new  ResponseEntity<>("creado", HttpStatus.CREATED);
+        String respuesta =  ConsultasDao.postConsulta(consulta);
+        return new  ResponseEntity<>(respuesta , HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "api/consulta/{id}", method = RequestMethod.PUT)
@@ -44,12 +44,9 @@ public class consultasController {
     }
 
     @RequestMapping(value = "api/consultas", method = RequestMethod.GET)
-    public List<consultasModel> getUsers(@RequestHeader (value = "Autorization") String token){
+    public List<consultasModel> getUsers(){
 
-        String userID = jwtUtil.getKey(token);
-        if (userID == null){
-            return new ArrayList<>();
-        }
+
         return ConsultasDao.getConsultas();
     }
 

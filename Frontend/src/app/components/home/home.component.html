@@ -1,0 +1,40 @@
+<div class="mt-4 d-flex justify-content-center">
+    <input type="number" name="" id="" >
+    <button>Buscar IP</button>
+</div>
+<div class="d-flex justify-content-center mt-4">
+    <table class="table table-dark table-striped" style="width: 75%;">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Ip</th>
+            <th scope="col">C.P</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Idioma</th>
+            <th scope="col">Moneda</th>
+            <th scope="col">Continente</th>
+            <th scope="col">Longitud</th>
+            <th scope="col">Latitud</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dato of datos">
+            <th>{{dato.id}}</th>
+            <td>{{dato.nombre}}</td>
+            <td>{{dato.ip}}</td>
+            <td>{{dato.cp}}</td>
+            <td>{{dato.ciudad}}</td>
+            <td>{{dato.pais}}</td>
+            <td>{{dato.estado}}</td>
+            <td>{{dato.idioma}}</td>
+            <td>{{dato.moneda}}</td>
+            <td>{{dato.continente}}</td>
+            <td>{{dato.longitud}}</td>
+            <td>{{dato.latitud}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

@@ -11,7 +11,7 @@ public interface consultasDao {
 
     void deleteConsulta(Long id);
 
-    void postConsulta(consultasModel consulta) throws IOException;
+    String postConsulta(consultasModel consulta) throws IOException;
 
     List<consultasModel> getConsulta(Long id);
 
