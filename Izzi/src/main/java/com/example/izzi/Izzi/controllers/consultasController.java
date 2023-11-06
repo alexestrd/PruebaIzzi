@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class consultasController {
@@ -27,13 +29,24 @@ public class consultasController {
     private JWTUtil jwtUtil;
 
     @RequestMapping(value = "api/consulta", method = RequestMethod.POST)
-    public ResponseEntity<String> postUser(@Valid @RequestBody consultasModel consulta, BindingResult bindingResult) throws IOException {
+    public ResponseEntity<Map<String, Object>> postUser(@Valid @RequestBody consultasModel consulta, BindingResult bindingResult) throws IOException {
         if (bindingResult.hasErrors()){
-            return new ResponseEntity<>(bindingResult.getFieldError().getDefaultMessage(), HttpStatus.BAD_REQUEST);
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("message", bindingResult.getFieldError().getDefaultMessage());
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
         }
 
         String respuesta =  ConsultasDao.postConsulta(consulta);
-        return new  ResponseEntity<>(respuesta , HttpStatus.CREATED);
+        if ("Creado".equals(respuesta)) {
+            Map<String, Object> successResponse = new HashMap<>();
+            successResponse.put("message", respuesta);
+            successResponse.put("consulta", consulta);
+            return new ResponseEntity<>(successResponse, HttpStatus.CREATED);
+        } else {
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Error al registrar la consulta");
+            return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @RequestMapping(value = "api/consulta/{id}", method = RequestMethod.PUT)

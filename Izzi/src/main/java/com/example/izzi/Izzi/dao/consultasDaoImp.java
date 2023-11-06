@@ -32,7 +32,7 @@ public class consultasDaoImp implements consultasDao{
 
     @Override
     public void deleteConsulta(Long id) {
-        usuarioModel consulta =  entityManager.find(usuarioModel.class, id);
+        consultasModel consulta =  entityManager.find(consultasModel.class, id);
         entityManager.remove(consulta);
     }
 
@@ -76,6 +76,7 @@ public class consultasDaoImp implements consultasDao{
            }
         }
             dataipModel geoData = ipGeo.getInfo(ip);
+        System.out.println(geoData);
             int cp = Integer.parseInt(geoData.getPostcode());
             String ciudad = geoData.getCity().getName();
             String pais = geoData.getCountry().getName();
